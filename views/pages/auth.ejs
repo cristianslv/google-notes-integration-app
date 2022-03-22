@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Google SignIn</title>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <style>
+    body { 
+      padding-top:70px; 
+    }
+  </style>
+
+  <!-- This is a development version of Vue.js! -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron text-center text-primary">
+      <h1><span class="fa fa-lock"></span> Social Authentication</h1>
+      <p>Login or Register with:</p>
+      <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google"></span> SignIn with Google</a>
+    </div>
+  </div>
+</body>
+
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      imagePath: "notes.png"
+    },
+  })
+</script>
+
+<style>
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #app {
+    display: grid;
+    justify-content: center;
+    grid-gap: 1rem;
+  }
+
+  #g_auth_limiter {
+    display: flex;
+    justify-content: center;
+  }
+</style>
+</html>
