@@ -1,5 +1,4 @@
 import { Router, Request, Response } from 'express';
-import { userProfile } from '../index';
 import { passport } from '../passport';
 
 const GoogleAuthRoutes = Router();
@@ -9,9 +8,9 @@ GoogleAuthRoutes.get('/', (request: Request, response: Response) =>
 );
 
 // Success & Error
-GoogleAuthRoutes.get('/success', (request: Request, response: Response) =>
-  response.send(userProfile),
-);
+GoogleAuthRoutes.get('/dashboard', (request: Request, response: Response) => {
+  response.json({ name: request.user, asd: request.isAuthenticated() });
+});
 
 GoogleAuthRoutes.get('/error', (request: Request, response: Response) =>
   response.send('error logging in'),
@@ -25,14 +24,10 @@ GoogleAuthRoutes.get(
 
 GoogleAuthRoutes.get(
   '/home',
-  passport.authenticate('google', { failureRedirect: '/error' }),
-  function (request, response) {
-    const { user } = request;
-
-    console.log(user);
-    // Successful authentication, redirect success.
-    response.render('pages/success', { user });
-  },
+  passport.authenticate('google', {
+    successRedirect: '/dashboard',
+    failureRedirect: '/error',
+  }),
 );
 
 export { GoogleAuthRoutes };

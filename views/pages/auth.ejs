@@ -24,11 +24,13 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="jumbotron text-center text-primary">
-      <h1><span class="fa fa-lock"></span> Social Authentication</h1>
-      <p>Login or Register with:</p>
-      <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google"></span> SignIn with Google</a>
+  <div id="app" class="container">
+    <div class="text-center text-primary">
+      <img :src="imagePath" alt="image">
+    </div>
+
+    <div class="text-center">
+      <a href="/auth/google" class="btn btn-defaut"><span class="fa fa-google"></span> SignIn with Google</a>
     </div>
   </div>
 </body>
@@ -43,20 +45,13 @@
 </script>
 
 <style>
-  html, body {
-    height: 100%;
-    overflow: hidden;
+  a {
+    width: 380px;
+    border: 1px solid #ffe168 !important;
   }
-
-  #app {
-    display: grid;
-    justify-content: center;
-    grid-gap: 1rem;
-  }
-
-  #g_auth_limiter {
-    display: flex;
-    justify-content: center;
+  
+  a:focus {
+    box-shadow: 0 0 0 0.2rem rgb(255, 225, 104, 0.25) !important;
   }
 </style>
 </html>

@@ -18,11 +18,10 @@ app.use(
   }),
 );
 
-app.use(GoogleAuthRoutes);
-
 app.listen(3333, () =>
   console.log(`Server started in http://localhost:${process.env.PORT}.`),
 );
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(GoogleAuthRoutes);
